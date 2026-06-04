@@ -133,7 +133,8 @@
       title: 'Windows',
       file: 'ai-stock-analytics-setup.exe',
       format: 'NSIS 인스톨러 (.exe)',
-      url: DOWNLOAD_URLS.windows
+      url: DOWNLOAD_URLS.windows,
+      requirements: ['Windows 10 이상', '4GB RAM 이상', '500MB 디스크 여유 공간', '인터넷 연결 필요']
     },
     {
       os: 'mac',
@@ -141,7 +142,8 @@
       title: 'macOS',
       file: 'ai-stock-analytics.dmg',
       format: 'DMG 디스크 이미지 (.dmg)',
-      url: DOWNLOAD_URLS.mac
+      url: DOWNLOAD_URLS.mac,
+      requirements: ['macOS 12 (Monterey) 이상', '4GB RAM 이상', '500MB 디스크 여유 공간', '인터넷 연결 필요']
     }
   ];
 
@@ -165,24 +167,15 @@
     const os = detectOS();
 
     const winIcon = `<img src="assets/images/win.png" alt="Windows" class="hero__btn-icon">`;
-    const macIcon = `<img src="assets/images/mac.png" alt="macOS" class="hero__btn-icon">`;
+    const macIcon = `<img src="assets/images/mac_black.png" alt="macOS" class="hero__btn-icon">`;
 
-    if (os === 'windows') {
-      container.innerHTML = `
-        <a href="${DOWNLOAD_URLS.windows}" class="hero__btn hero__btn--primary">${winIcon} Windows용 다운로드</a>
-        <a href="${DOWNLOAD_URLS.mac}" class="hero__btn hero__btn--secondary">${macIcon} macOS용 다운로드</a>
-      `;
-    } else if (os === 'mac') {
-      container.innerHTML = `
-        <a href="${DOWNLOAD_URLS.mac}" class="hero__btn hero__btn--primary">${macIcon} macOS용 다운로드</a>
-        <a href="${DOWNLOAD_URLS.windows}" class="hero__btn hero__btn--secondary">${winIcon} Windows용 다운로드</a>
-      `;
-    } else {
-      container.innerHTML = `
-        <a href="${DOWNLOAD_URLS.windows}" class="hero__btn hero__btn--primary">${winIcon} Windows용 다운로드</a>
-        <a href="${DOWNLOAD_URLS.mac}" class="hero__btn hero__btn--primary">${macIcon} macOS용 다운로드</a>
-      `;
-    }
+    const winClass = `hero__btn hero__btn--secondary${os === 'windows' ? ' hero__btn--detected' : ''}`;
+    const macClass = `hero__btn hero__btn--secondary${os === 'mac' ? ' hero__btn--detected' : ''}`;
+
+    container.innerHTML = `
+      <a href="${DOWNLOAD_URLS.windows}" class="${winClass}">${winIcon} Windows용 다운로드</a>
+      <a href="${DOWNLOAD_URLS.mac}" class="${macClass}">${macIcon} macOS용 다운로드</a>
+    `;
   }
 
   // ===========================
@@ -230,17 +223,12 @@
 
     const os = detectOS();
 
-    // 감지된 OS를 먼저 배치
-    const sorted = [...DOWNLOAD_DATA].sort((a, b) => {
-      if (a.os === os) return -1;
-      if (b.os === os) return 1;
-      return 0;
-    });
-
-    container.innerHTML = sorted.map((item, i) => {
+    container.innerHTML = DOWNLOAD_DATA.map((item, i) => {
       const isDetected = item.os === os;
       const badgeHTML = isDetected ? '<span class="download__card-badge">사용 중인 OS</span>' : '';
       const btnClass = isDetected ? 'download__btn download__btn--primary' : 'download__btn download__btn--secondary';
+
+      const reqHTML = item.requirements.map(r => `<li>${r}</li>`).join('');
 
       return `
         <div class="download__card fade-in${isDetected ? ' download__card--detected' : ''}">
@@ -249,6 +237,10 @@
           <h3 class="download__card-title">${item.title}</h3>
           <p class="download__card-file">${item.format}</p>
           <a href="${item.url}" class="${btnClass}">다운로드</a>
+          <div class="download__card-requirements">
+            <span class="download__card-requirements-title">시스템 요구사항</span>
+            <ul class="download__card-requirements-list">${reqHTML}</ul>
+          </div>
         </div>
       `;
     }).join('');
