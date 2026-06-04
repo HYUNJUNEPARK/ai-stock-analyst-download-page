@@ -297,6 +297,15 @@ img {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
+.hero__btn--disabled {
+  background: var(--bg-primary);
+  color: var(--text-tertiary);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
 .hero__btn-icon {
   width: 20px;
   height: 20px;
@@ -668,6 +677,15 @@ img {
   background: rgba(0, 0, 0, 0.06);
   color: var(--text-primary);
 }
+
+.download__btn--disabled {
+  background: var(--bg-primary);
+  color: var(--text-tertiary);
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
 
 /* Card Requirements */
 .download__card-requirements {

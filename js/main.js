@@ -168,7 +168,12 @@
   // ===========================
   // OS 감지
   // ===========================
+  function isMobile() {
+    return /Android|iPhone|iPad|iPod|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  }
+
   function detectOS() {
+    if (isMobile()) return 'mobile';
     const ua = navigator.userAgent;
     if (ua.includes('Win')) return 'windows';
     if (ua.includes('Mac')) return 'mac';
@@ -183,9 +188,18 @@
     if (!container) return;
 
     const os = detectOS();
+    const mobile = os === 'mobile';
 
     const winIcon = `<img src="assets/images/win.png" alt="Windows" class="hero__btn-icon">`;
     const macIcon = `<img src="assets/images/mac_black.png" alt="macOS" class="hero__btn-icon">`;
+
+    if (mobile) {
+      container.innerHTML = `
+        <span class="hero__btn hero__btn--disabled">${winIcon} Windows용 다운로드</span>
+        <span class="hero__btn hero__btn--disabled">${macIcon} macOS용 다운로드</span>
+      `;
+      return;
+    }
 
     const winClass = `hero__btn hero__btn--secondary${os === 'windows' ? ' hero__btn--detected' : ''}`;
     const macClass = `hero__btn hero__btn--secondary${os === 'mac' ? ' hero__btn--detected' : ''}`;
@@ -297,12 +311,21 @@
 
     const os = detectOS();
 
+    const mobile = os === 'mobile';
+
     container.innerHTML = DOWNLOAD_DATA.map((item, i) => {
-      const isDetected = item.os === os;
+      const isDetected = !mobile && item.os === os;
       const badgeHTML = isDetected ? '<span class="download__card-badge">사용 중인 OS</span>' : '';
-      const btnClass = isDetected ? 'download__btn download__btn--primary' : 'download__btn download__btn--secondary';
 
       const reqHTML = item.requirements.map(r => `<li>${r}</li>`).join('');
+
+      let btnHTML;
+      if (mobile) {
+        btnHTML = `<span class="download__btn download__btn--disabled">다운로드</span>`;
+      } else {
+        const btnClass = isDetected ? 'download__btn download__btn--primary' : 'download__btn download__btn--secondary';
+        btnHTML = `<a href="${item.url}" class="${btnClass}">다운로드</a>`;
+      }
 
       return `
         <div class="download__card fade-in${isDetected ? ' download__card--detected' : ''}">
@@ -310,7 +333,7 @@
           <img src="${item.icon}" alt="${item.title}" class="download__card-icon">
           <h3 class="download__card-title">${item.title}</h3>
           <p class="download__card-file">${item.format}</p>
-          <a href="${item.url}" class="${btnClass}">다운로드</a>
+          ${btnHTML}
           <div class="download__card-requirements">
             <span class="download__card-requirements-title">시스템 요구사항</span>
             <ul class="download__card-requirements-list">${reqHTML}</ul>
@@ -318,6 +341,7 @@
         </div>
       `;
     }).join('');
+
   }
 
   // ===========================
