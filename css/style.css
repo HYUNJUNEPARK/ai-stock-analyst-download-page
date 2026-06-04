@@ -300,11 +300,117 @@ img {
 }
 
 /* ===========================
+   Screenshots
+   =========================== */
+.screenshots {
+  padding: 5rem 1.5rem;
+  background: var(--bg-white);
+}
+
+.screenshots__container {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.screenshots__slider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.screenshots__arrow {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg-white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  transition: all var(--transition);
+}
+
+.screenshots__arrow:hover {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.screenshots__track-wrap {
+  flex: 1;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+.screenshots__track {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+.screenshots__slide {
+  flex: 0 0 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.screenshots__image-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: var(--bg-primary);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+}
+
+.screenshots__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.screenshots__caption {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.screenshots__dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.screenshots__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: var(--border);
+  cursor: pointer;
+  padding: 0;
+  transition: all var(--transition);
+}
+
+.screenshots__dot.active {
+  background: var(--primary);
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* ===========================
    Features
    =========================== */
 .features {
   padding: 5rem 1.5rem;
-  background: var(--bg-white);
+  background: var(--bg-primary);
 }
 
 .features__container {
@@ -321,7 +427,7 @@ img {
 }
 
 .features__card {
-  background: var(--bg-primary);
+  background: var(--bg-white);
   border-radius: var(--radius-xl);
   padding: 1.75rem;
   text-align: center;
@@ -349,7 +455,6 @@ img {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: var(--shadow-sm);
 }
 
 .features__card-image {
@@ -376,7 +481,7 @@ img {
    =========================== */
 .agents {
   padding: 5rem 1.5rem;
-  background: var(--bg-primary);
+  background: #f0f7ff;
 }
 
 .agents__container {
@@ -389,7 +494,6 @@ img {
   flex-wrap: wrap;
   justify-content: center;
   gap: 1.5rem;
-  margin-bottom: 4rem;
 }
 
 .agents__card {
@@ -418,7 +522,7 @@ img {
   margin-bottom: 1rem;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  background: var(--bg-primary);
+  background: var(--bg-white);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -444,24 +548,17 @@ img {
   line-height: 1.6;
 }
 
-/* Pipeline — 3-Stage Horizontal Layout */
-.agents__pipeline {
-  max-width: 100%;
+/* ===========================
+   Pipeline
+   =========================== */
+.pipeline-section {
+  padding: 5rem 1.5rem;
+  background: var(--bg-white);
+}
+
+.pipeline-section__container {
+  max-width: var(--max-width);
   margin: 0 auto;
-}
-
-.agents__pipeline-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  text-align: center;
-  margin-bottom: 0.5rem;
-}
-
-.agents__pipeline-desc {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  text-align: center;
-  margin-bottom: 2rem;
 }
 
 .pipeline {
@@ -634,7 +731,7 @@ img {
    =========================== */
 .download {
   padding: 5rem 1.5rem;
-  background: var(--bg-white);
+  background: var(--bg-primary);
 }
 
 .download__container {
@@ -788,7 +885,7 @@ img {
    =========================== */
 .faq {
   padding: 5rem 1.5rem;
-  background: var(--bg-primary);
+  background: var(--bg-white);
 }
 
 .faq__container {
@@ -962,6 +1059,10 @@ img {
     display: block;
     padding: 0.875rem 1.5rem;
     font-size: 1rem;
+  }
+
+  .screenshots__arrow {
+    display: none;
   }
 
   .nav__link::after {

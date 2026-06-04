@@ -17,6 +17,24 @@
   };
 
   // ===========================
+  // 데이터 — Screenshots
+  // ===========================
+  const SCREENSHOTS_DATA = [
+    {
+      image: 'assets/images/screenshot-model-select.png',
+      caption: 'AI 모델 선택'
+    },
+    {
+      image: 'assets/images/screenshot-analysis.png',
+      caption: '멀티 에이전트 분석 진행'
+    },
+    {
+      image: 'assets/images/screenshot-report.png',
+      caption: '투자 리포트 결과'
+    }
+  ];
+
+  // ===========================
   // 데이터 — Features
   // ===========================
   const FEATURES_DATA = [
@@ -176,6 +194,62 @@
       <a href="${DOWNLOAD_URLS.windows}" class="${winClass}">${winIcon} Windows용 다운로드</a>
       <a href="${DOWNLOAD_URLS.mac}" class="${macClass}">${macIcon} macOS용 다운로드</a>
     `;
+  }
+
+  // ===========================
+  // Screenshots 렌더링 + 슬라이더
+  // ===========================
+  function renderScreenshots() {
+    const track = document.getElementById('screenshotsTrack');
+    const dotsContainer = document.getElementById('screenshotsDots');
+    if (!track || !dotsContainer) return;
+
+    track.innerHTML = SCREENSHOTS_DATA.map(item => `
+      <div class="screenshots__slide">
+        <div class="screenshots__image-wrap">
+          <img src="${item.image}" alt="${item.caption}" class="screenshots__image" loading="lazy">
+        </div>
+        <p class="screenshots__caption">${item.caption}</p>
+      </div>
+    `).join('');
+
+    dotsContainer.innerHTML = SCREENSHOTS_DATA.map((_, i) => `
+      <button class="screenshots__dot${i === 0 ? ' active' : ''}" data-index="${i}" aria-label="슬라이드 ${i + 1}"></button>
+    `).join('');
+  }
+
+  function initScreenshots() {
+    const track = document.getElementById('screenshotsTrack');
+    const dots = document.getElementById('screenshotsDots');
+    const prevBtn = document.getElementById('slidePrev');
+    const nextBtn = document.getElementById('slideNext');
+    if (!track || !dots) return;
+
+    let current = 0;
+    const total = SCREENSHOTS_DATA.length;
+
+    function goTo(index) {
+      current = (index + total) % total;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      dots.querySelectorAll('.screenshots__dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === current);
+      });
+    }
+
+    prevBtn?.addEventListener('click', () => goTo(current - 1));
+    nextBtn?.addEventListener('click', () => goTo(current + 1));
+    dots.addEventListener('click', (e) => {
+      const dot = e.target.closest('.screenshots__dot');
+      if (dot) goTo(Number(dot.dataset.index));
+    });
+
+    // 스와이프 지원
+    let startX = 0;
+    track.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; });
+    track.addEventListener('touchend', (e) => {
+      const diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) goTo(current + (diff > 0 ? 1 : -1));
+    });
   }
 
   // ===========================
@@ -368,10 +442,12 @@
   // ===========================
   document.addEventListener('DOMContentLoaded', () => {
     renderHeroCTA();
+    renderScreenshots();
     renderFeatures();
     renderAgents();
     renderDownload();
     renderFAQ();
+    initScreenshots();
     initFAQ();
     initNavigation();
     initScrollAnimations();
