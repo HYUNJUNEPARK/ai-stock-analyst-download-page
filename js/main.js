@@ -124,6 +124,28 @@
   ];
 
   // ===========================
+  // 데이터 — Download
+  // ===========================
+  const DOWNLOAD_DATA = [
+    {
+      os: 'windows',
+      icon: 'assets/images/win.png',
+      title: 'Windows',
+      file: 'ai-stock-analytics-setup.exe',
+      format: 'NSIS 인스톨러 (.exe)',
+      url: DOWNLOAD_URLS.windows
+    },
+    {
+      os: 'mac',
+      icon: 'assets/images/mac_black.png',
+      title: 'macOS',
+      file: 'ai-stock-analytics.dmg',
+      format: 'DMG 디스크 이미지 (.dmg)',
+      url: DOWNLOAD_URLS.mac
+    }
+  ];
+
+  // ===========================
   // OS 감지
   // ===========================
   function detectOS() {
@@ -200,6 +222,39 @@
   }
 
   // ===========================
+  // Download 렌더링
+  // ===========================
+  function renderDownload() {
+    const container = document.getElementById('downloadCards');
+    if (!container) return;
+
+    const os = detectOS();
+
+    // 감지된 OS를 먼저 배치
+    const sorted = [...DOWNLOAD_DATA].sort((a, b) => {
+      if (a.os === os) return -1;
+      if (b.os === os) return 1;
+      return 0;
+    });
+
+    container.innerHTML = sorted.map((item, i) => {
+      const isDetected = item.os === os;
+      const badgeHTML = isDetected ? '<span class="download__card-badge">사용 중인 OS</span>' : '';
+      const btnClass = isDetected ? 'download__btn download__btn--primary' : 'download__btn download__btn--secondary';
+
+      return `
+        <div class="download__card fade-in${isDetected ? ' download__card--detected' : ''}">
+          ${badgeHTML}
+          <img src="${item.icon}" alt="${item.title}" class="download__card-icon">
+          <h3 class="download__card-title">${item.title}</h3>
+          <p class="download__card-file">${item.format}</p>
+          <a href="${item.url}" class="${btnClass}">다운로드</a>
+        </div>
+      `;
+    }).join('');
+  }
+
+  // ===========================
   // FAQ 렌더링 + 토글
   // ===========================
   function renderFAQ() {
@@ -208,7 +263,7 @@
 
     list.innerHTML = FAQ_DATA.map(item => `
       <div class="faq__item">
-        <button class="faq__question" type="button">
+        <button class="faq__question" type="button" aria-expanded="false">
           <span>${item.q}</span>
           <span class="faq__icon">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
@@ -237,11 +292,13 @@
       // Close all
       list.querySelectorAll('.faq__item.open').forEach(el => {
         el.classList.remove('open');
+        el.querySelector('.faq__question').setAttribute('aria-expanded', 'false');
       });
 
       // Toggle clicked
       if (!isOpen) {
         item.classList.add('open');
+        button.setAttribute('aria-expanded', 'true');
       }
     });
   }
@@ -321,6 +378,7 @@
     renderHeroCTA();
     renderFeatures();
     renderAgents();
+    renderDownload();
     renderFAQ();
     initFAQ();
     initNavigation();

@@ -5,10 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI 투자 솔루션 — GPT/Claude 기반 멀티 에이전트 주식 분석</title>
   <meta name="description" content="7개 전문 AI 에이전트가 재무, 업종, 뉴스, 기술적 분석을 병렬 수행하여 투자 리포트를 생성하는 데스크탑 앱">
-  <meta property="og:title" content="AI 투자 솔루션">
-  <meta property="og:description" content="GPT/Claude 기반 멀티 에이전트 주식 분석 데스크탑 앱">
+  <meta name="keywords" content="AI 주식 분석, GPT 투자, Claude 투자, 멀티 에이전트, 주식 리포트, 재무 분석, 기술적 분석, 투자 전략, AI 투자 솔루션">
+  <meta property="og:title" content="AI 투자 솔루션 — GPT/Claude 기반 멀티 에이전트 주식 분석">
+  <meta property="og:description" content="7개 전문 AI 에이전트가 재무, 업종, 뉴스, 기술적 분석을 병렬 수행하여 투자 리포트를 생성하는 데스크탑 앱">
   <meta property="og:image" content="assets/images/og-image.png">
   <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="apple-touch-icon" href="assets/images/icon.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "AI 투자 솔루션",
+    "description": "GPT/Claude 기반 멀티 에이전트 주식 분석 데스크탑 앱",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Windows, macOS",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "KRW"
+    }
+  }
+  </script>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -16,15 +34,16 @@
   <!-- Navigation -->
   <nav class="nav" id="nav">
     <div class="nav__container">
-      <a href="#hero" class="nav__logo">AI 투자 솔루션</a>
+      <a href="#hero" class="nav__logo"><img src="assets/images/icon-56.png" alt="AI 투자 솔루션" class="nav__logo-icon">AI 투자 솔루션</a>
       <button class="nav__hamburger" id="navHamburger" aria-label="메뉴 열기">
         <span class="nav__hamburger-line"></span>
         <span class="nav__hamburger-line"></span>
         <span class="nav__hamburger-line"></span>
       </button>
-      <ul class="nav__menu" id="navMenu">
+      <ul class="nav__menu" id="navMenu" role="menubar">
         <li><a href="#features" class="nav__link">기능</a></li>
         <li><a href="#agents" class="nav__link">에이전트</a></li>
+        <li><a href="#download" class="nav__link">다운로드</a></li>
         <li><a href="#faq" class="nav__link">FAQ</a></li>
       </ul>
     </div>
@@ -78,28 +97,28 @@
             <div class="pipeline__stage-body">
               <div class="pipeline__agent-grid">
                 <div class="pipeline__agent-card">
-                  <img src="assets/images/01-financial-analyst.png" alt="재무 분석" class="pipeline__agent-img">
+                  <img src="assets/images/01-financial-analyst.png" alt="재무 분석 에이전트 아이콘" class="pipeline__agent-img">
                   <div class="pipeline__agent-info">
                     <span class="pipeline__agent-name">재무 분석</span>
                     <span class="pipeline__agent-desc">재무제표 건전성</span>
                   </div>
                 </div>
                 <div class="pipeline__agent-card">
-                  <img src="assets/images/02-sector-researcher.png" alt="업종 리서치" class="pipeline__agent-img">
+                  <img src="assets/images/02-sector-researcher.png" alt="업종 리서치 에이전트 아이콘" class="pipeline__agent-img">
                   <div class="pipeline__agent-info">
                     <span class="pipeline__agent-name">업종 리서치</span>
                     <span class="pipeline__agent-desc">시장 흐름·경쟁사</span>
                   </div>
                 </div>
                 <div class="pipeline__agent-card">
-                  <img src="assets/images/03-news-sentiment.png" alt="뉴스 분석" class="pipeline__agent-img">
+                  <img src="assets/images/03-news-sentiment.png" alt="뉴스 분석 에이전트 아이콘" class="pipeline__agent-img">
                   <div class="pipeline__agent-info">
                     <span class="pipeline__agent-name">뉴스 분석</span>
                     <span class="pipeline__agent-desc">호재·악재 분류</span>
                   </div>
                 </div>
                 <div class="pipeline__agent-card">
-                  <img src="assets/images/04-price-analyst.png" alt="기술 분석" class="pipeline__agent-img">
+                  <img src="assets/images/04-price-analyst.png" alt="기술 분석 에이전트 아이콘" class="pipeline__agent-img">
                   <div class="pipeline__agent-info">
                     <span class="pipeline__agent-name">기술 분석</span>
                     <span class="pipeline__agent-desc">차트·지지·저항</span>
@@ -107,7 +126,7 @@
                 </div>
               </div>
               <div class="pipeline__valuation-card">
-                <img src="assets/images/05-valuation-analyst.png" alt="밸류에이션" class="pipeline__valuation-img">
+                <img src="assets/images/05-valuation-analyst.png" alt="밸류에이션 에이전트 아이콘" class="pipeline__valuation-img">
                 <span class="pipeline__agent-name">밸류에이션</span>
                 <span class="pipeline__agent-desc">적정주가 산출</span>
               </div>
@@ -128,7 +147,7 @@
               <span class="pipeline__stage-title">투자 유형 판단</span>
             </div>
             <div class="pipeline__stage-center">
-              <img src="assets/images/06-invest-classifier.png" alt="투자 유형 분류기" class="pipeline__stage-icon">
+              <img src="assets/images/06-invest-classifier.png" alt="투자 유형 분류기 에이전트 아이콘" class="pipeline__stage-icon">
               <span class="pipeline__agent-name">투자 유형 분류기</span>
               <span class="pipeline__agent-desc">6가지 유형으로 분류</span>
             </div>
@@ -148,12 +167,46 @@
               <span class="pipeline__stage-title">투자 전략 생성</span>
             </div>
             <div class="pipeline__stage-center">
-              <img src="assets/images/07-investment-strategist.png" alt="투자 전략가" class="pipeline__stage-icon">
+              <img src="assets/images/07-investment-strategist.png" alt="투자 전략가 에이전트 아이콘" class="pipeline__stage-icon">
               <span class="pipeline__agent-name">투자 전략가</span>
               <span class="pipeline__agent-desc">매수/관망/매도 판정</span>
             </div>
           </div>
 
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download -->
+  <section class="download" id="download">
+    <div class="download__container">
+      <h2 class="section-title">다운로드</h2>
+      <p class="section-subtitle">사용 중인 운영체제에 맞는 설치 파일을 다운로드하세요.</p>
+      <div class="download__cards" id="downloadCards">
+        <!-- JS에서 동적 생성 -->
+      </div>
+      <div class="download__requirements">
+        <h3 class="download__requirements-title">시스템 요구사항</h3>
+        <div class="download__requirements-grid">
+          <div class="download__requirements-col">
+            <h4 class="download__requirements-os">Windows</h4>
+            <ul class="download__requirements-list">
+              <li>Windows 10 이상</li>
+              <li>4GB RAM 이상</li>
+              <li>500MB 디스크 여유 공간</li>
+              <li>인터넷 연결 필요</li>
+            </ul>
+          </div>
+          <div class="download__requirements-col">
+            <h4 class="download__requirements-os">macOS</h4>
+            <ul class="download__requirements-list">
+              <li>macOS 12 (Monterey) 이상</li>
+              <li>4GB RAM 이상</li>
+              <li>500MB 디스크 여유 공간</li>
+              <li>인터넷 연결 필요</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -173,12 +226,13 @@
   <footer class="footer" id="footer">
     <div class="footer__container">
       <div class="footer__brand">
-        <span class="footer__logo">AI 투자 솔루션</span>
+        <span class="footer__logo"><img src="assets/images/icon-56.png" alt="AI 투자 솔루션" class="footer__logo-icon">AI 투자 솔루션</span>
         <p class="footer__desc">GPT/Claude 기반 멀티 에이전트 주식 분석 데스크탑 앱</p>
       </div>
       <div class="footer__links">
         <a href="#features">기능</a>
         <a href="#agents">에이전트</a>
+        <a href="#download">다운로드</a>
         <a href="#faq">FAQ</a>
       </div>
       <div class="footer__copyright">
