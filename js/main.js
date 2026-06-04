@@ -57,37 +57,37 @@
   // ===========================
   const AGENTS_DATA = [
     {
-      icon: '📊',
+      image: 'assets/images/01-financial-analyst.png',
       title: '재무 분석가',
       desc: '매출 추이, 영업이익률, PER, PBR, ROE, 부채비율 등 재무 건전성 분석'
     },
     {
-      icon: '🏭',
+      image: 'assets/images/02-sector-researcher.png',
       title: '업종 리서처',
       desc: '글로벌 시장 흐름, 경쟁사 비교, 정책·규제 변화, 업종 전망 분석'
     },
     {
-      icon: '📰',
+      image: 'assets/images/03-news-sentiment.png',
       title: '뉴스 분석가',
       desc: '최근 뉴스 수집, 호재·악재 분류, 시장 심리 판정'
     },
     {
-      icon: '📈',
+      image: 'assets/images/04-price-analyst.png',
       title: '기술적 분석가',
       desc: '이동평균, RSI, MACD, 볼린저밴드, 지지·저항선 분석'
     },
     {
-      icon: '💰',
+      image: 'assets/images/05-valuation-analyst.png',
       title: '밸류에이션 분석가',
       desc: '증권사 목표주가, 적정주가 시나리오(보수·기준·낙관) 산출'
     },
     {
-      icon: '🏷️',
+      image: 'assets/images/06-invest-classifier.png',
       title: '투자 유형 분류기',
       desc: '6가지 유형(성장형, 가치형, 턴어라운드형 등)으로 분류'
     },
     {
-      icon: '🎯',
+      image: 'assets/images/07-investment-strategist.png',
       title: '투자 전략가',
       desc: '최종 매수/관망/매도 판정, 목표가·손절가·매수 추천가 제시'
     }
@@ -188,7 +188,9 @@
 
     grid.innerHTML = AGENTS_DATA.map(item => `
       <article class="agents__card fade-in">
-        <div class="agents__card-icon">${item.icon}</div>
+        <div class="agents__card-image-wrap">
+          <img src="${item.image}" alt="${item.title}" class="agents__card-image" loading="lazy">
+        </div>
         <h3 class="agents__card-title">${item.title}</h3>
         <p class="agents__card-desc">${item.desc}</p>
       </article>

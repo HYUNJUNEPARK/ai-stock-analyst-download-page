@@ -372,41 +372,62 @@ img {
 }
 
 .agents__grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
   margin-bottom: 4rem;
 }
 
 .agents__card {
+  width: calc(25% - 1.2rem);
+  min-width: 200px;
   background: var(--bg-white);
-  border-radius: var(--radius-lg);
-  padding: 1.5rem;
+  border-radius: var(--radius-xl);
+  padding: 1.75rem 1.5rem 1.5rem;
   text-align: center;
   transition: transform var(--transition), box-shadow var(--transition);
   border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .agents__card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
 }
 
-.agents__card-icon {
-  font-size: 2rem;
-  margin-bottom: 0.75rem;
+.agents__card-image-wrap {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 1rem;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.agents__card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .agents__card-title {
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
+  color: var(--text-primary);
 }
 
 .agents__card-desc {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: var(--text-secondary);
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 /* Pipeline */
@@ -634,8 +655,8 @@ img {
    Responsive — Tablet (768px)
    =========================== */
 @media (max-width: 1024px) {
-  .agents__grid {
-    grid-template-columns: repeat(3, 1fr);
+  .agents__card {
+    width: calc(33.333% - 1.1rem);
   }
 }
 
@@ -709,9 +730,9 @@ img {
     gap: 1rem;
   }
 
-  .agents__grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+  .agents__card {
+    width: calc(50% - 0.75rem);
+    min-width: 0;
   }
 
   /* Pipeline mobile */
@@ -734,8 +755,8 @@ img {
     font-size: 1.8rem;
   }
 
-  .agents__grid {
-    grid-template-columns: 1fr;
+  .agents__card {
+    width: 100%;
   }
 
   .hero__cta {
