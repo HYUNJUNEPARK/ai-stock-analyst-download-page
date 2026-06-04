@@ -393,26 +393,37 @@
     });
 
     // Active link on scroll
-    const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav__link');
+    const navHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 60;
 
-    const observerOptions = {
-      rootMargin: `-${parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 60}px 0px -40% 0px`,
-      threshold: 0
-    };
+    // 네비게이션 링크가 있는 섹션만 수집
+    const navSections = Array.from(navLinks)
+      .map(link => document.querySelector(link.getAttribute('href')))
+      .filter(Boolean);
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.id;
-          navLinks.forEach(link => {
-            link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-          });
+    function updateActiveLink() {
+      const atBottom = (window.innerHeight + window.scrollY) >= document.body.scrollHeight - 2;
+      let currentId = '';
+
+      if (atBottom) {
+        currentId = navSections[navSections.length - 1]?.id || '';
+      } else {
+        const scrollY = window.scrollY + navHeight + 1;
+        for (let i = navSections.length - 1; i >= 0; i--) {
+          if (navSections[i].offsetTop <= scrollY) {
+            currentId = navSections[i].id;
+            break;
+          }
         }
-      });
-    }, observerOptions);
+      }
 
-    sections.forEach(section => observer.observe(section));
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${currentId}`);
+      });
+    }
+
+    window.addEventListener('scroll', updateActiveLink, { passive: true });
+    updateActiveLink();
   }
 
   // ===========================
