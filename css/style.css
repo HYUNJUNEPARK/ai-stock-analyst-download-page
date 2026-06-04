@@ -316,6 +316,8 @@ img {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
+  max-width: 780px;
+  margin: 0 auto;
 }
 
 .features__card {
@@ -326,6 +328,8 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
   transition: transform var(--transition), box-shadow var(--transition);
 }
 
@@ -389,17 +393,18 @@ img {
 }
 
 .agents__card {
-  width: calc(25% - 1.15rem);
-  min-width: 180px;
+  width: 230px;
   background: var(--bg-white);
   border-radius: var(--radius-xl);
-  padding: 1.75rem 1.5rem 1.5rem;
+  padding: 1.75rem;
   text-align: center;
   transition: transform var(--transition), box-shadow var(--transition);
   border: 1px solid var(--border);
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
 }
 
 .agents__card:hover {
@@ -893,7 +898,7 @@ img {
    =========================== */
 @media (max-width: 1024px) {
   .agents__card {
-    width: calc(33.333% - 1.1rem);
+    width: 230px;
   }
 
   .pipeline {
@@ -997,7 +1002,7 @@ img {
 
   .agents__card {
     width: calc(50% - 0.75rem);
-    min-width: 0;
+    aspect-ratio: auto;
   }
 
   /* Pipeline mobile — vertical stack */
@@ -1041,6 +1046,7 @@ img {
 
   .agents__card {
     width: 100%;
+    aspect-ratio: auto;
   }
 
   .hero__cta {
