@@ -1,0 +1,11 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Downloads (설치 파일은 저장소에 포함하지 않음)
+assets/downloads/*.exe
+assets/downloads/*.dmg
