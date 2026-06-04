@@ -34,7 +34,7 @@
   <header>
     <section class="hero" id="hero">
       <div class="hero__container">
-        <h1 class="hero__title">AI가 분석하는<br>스마트 투자</h1>
+        <h1 class="hero__title">AI가 분석하는<br>스마트한 투자</h1>
         <p class="hero__subtitle">GPT/Claude 기반 7개 전문 에이전트가 재무, 업종, 뉴스, 기술적 분석을 병렬 수행하여 투자 리포트를 생성합니다.</p>
         <div class="hero__cta" id="heroCTA">
           <!-- JS에서 OS 감지 후 동적 생성 -->
@@ -65,44 +65,95 @@
       </div>
       <div class="agents__pipeline">
         <h3 class="agents__pipeline-title">분석 파이프라인</h3>
+        <p class="agents__pipeline-desc">에이전트별 분석을 마친 후 종합 투자 분석이 진행됩니다.</p>
         <div class="pipeline" id="pipeline">
-          <div class="pipeline__wave">
-            <div class="pipeline__label">Wave 1 <span class="pipeline__badge">병렬</span></div>
-            <div class="pipeline__items">
-              <div class="pipeline__item pipeline__item--wave1">재무 분석가</div>
-              <div class="pipeline__item pipeline__item--wave1">업종 리서처</div>
-              <div class="pipeline__item pipeline__item--wave1">뉴스 분석가</div>
-              <div class="pipeline__item pipeline__item--wave1">기술적 분석가</div>
+
+          <!-- Stage 1: 데이터 분석 및 밸류에이션 -->
+          <div class="pipeline__stage pipeline__stage--blue">
+            <div class="pipeline__stage-header">
+              <span class="pipeline__stage-badge pipeline__stage-badge--blue">1단계</span>
+              <span class="pipeline__stage-title">데이터 분석 및 밸류에이션</span>
             </div>
-          </div>
-          <div class="pipeline__connector">
-            <svg width="24" height="40" viewBox="0 0 24 40" fill="none">
-              <path d="M12 0L12 30M6 24L12 30L18 24" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div class="pipeline__wave">
-            <div class="pipeline__label">Wave 1b <span class="pipeline__badge">부분 순차</span></div>
-            <div class="pipeline__items">
-              <div class="pipeline__item pipeline__item--wave1b">밸류에이션 분석가</div>
-            </div>
-          </div>
-          <div class="pipeline__connector">
-            <svg width="24" height="40" viewBox="0 0 24 40" fill="none">
-              <path d="M12 0L12 30M6 24L12 30L18 24" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div class="pipeline__wave">
-            <div class="pipeline__label">Wave 2 <span class="pipeline__badge">순차</span></div>
-            <div class="pipeline__items pipeline__items--sequential">
-              <div class="pipeline__item pipeline__item--wave2">투자 유형 분류기</div>
-              <div class="pipeline__arrow">
-                <svg width="32" height="16" viewBox="0 0 32 16" fill="none">
-                  <path d="M0 8H24M18 2L24 8L18 14" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+            <p class="pipeline__stage-desc">재무, 업종, 뉴스, 기술적 데이터를 병렬 수집·분석 후 밸류에이션을 산출합니다.</p>
+            <div class="pipeline__stage-body">
+              <div class="pipeline__agent-grid">
+                <div class="pipeline__agent-card">
+                  <img src="assets/images/01-financial-analyst.png" alt="재무 분석" class="pipeline__agent-img">
+                  <div class="pipeline__agent-info">
+                    <span class="pipeline__agent-name">재무 분석</span>
+                    <span class="pipeline__agent-desc">재무제표 건전성</span>
+                  </div>
+                </div>
+                <div class="pipeline__agent-card">
+                  <img src="assets/images/02-sector-researcher.png" alt="업종 리서치" class="pipeline__agent-img">
+                  <div class="pipeline__agent-info">
+                    <span class="pipeline__agent-name">업종 리서치</span>
+                    <span class="pipeline__agent-desc">시장 흐름·경쟁사</span>
+                  </div>
+                </div>
+                <div class="pipeline__agent-card">
+                  <img src="assets/images/03-news-sentiment.png" alt="뉴스 분석" class="pipeline__agent-img">
+                  <div class="pipeline__agent-info">
+                    <span class="pipeline__agent-name">뉴스 분석</span>
+                    <span class="pipeline__agent-desc">호재·악재 분류</span>
+                  </div>
+                </div>
+                <div class="pipeline__agent-card">
+                  <img src="assets/images/04-price-analyst.png" alt="기술 분석" class="pipeline__agent-img">
+                  <div class="pipeline__agent-info">
+                    <span class="pipeline__agent-name">기술 분석</span>
+                    <span class="pipeline__agent-desc">차트·지지·저항</span>
+                  </div>
+                </div>
               </div>
-              <div class="pipeline__item pipeline__item--wave2-final">투자 전략가</div>
+              <div class="pipeline__valuation-card">
+                <img src="assets/images/05-valuation-analyst.png" alt="밸류에이션" class="pipeline__valuation-img">
+                <span class="pipeline__agent-name">밸류에이션</span>
+                <span class="pipeline__agent-desc">적정주가 산출</span>
+              </div>
             </div>
           </div>
+
+          <!-- Arrow -->
+          <div class="pipeline__arrow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12H19M13 6L19 12L13 18" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <!-- Stage 2: 투자 유형 판단 -->
+          <div class="pipeline__stage pipeline__stage--green">
+            <div class="pipeline__stage-header">
+              <span class="pipeline__stage-badge pipeline__stage-badge--green">2단계</span>
+              <span class="pipeline__stage-title">투자 유형 판단</span>
+            </div>
+            <div class="pipeline__stage-center">
+              <img src="assets/images/06-invest-classifier.png" alt="투자 유형 분류기" class="pipeline__stage-icon">
+              <span class="pipeline__agent-name">투자 유형 분류기</span>
+              <span class="pipeline__agent-desc">6가지 유형으로 분류</span>
+            </div>
+          </div>
+
+          <!-- Arrow -->
+          <div class="pipeline__arrow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12H19M13 6L19 12L13 18" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <!-- Stage 3: 투자 전략 생성 -->
+          <div class="pipeline__stage pipeline__stage--purple">
+            <div class="pipeline__stage-header">
+              <span class="pipeline__stage-badge pipeline__stage-badge--purple">3단계</span>
+              <span class="pipeline__stage-title">투자 전략 생성</span>
+            </div>
+            <div class="pipeline__stage-center">
+              <img src="assets/images/07-investment-strategist.png" alt="투자 전략가" class="pipeline__stage-icon">
+              <span class="pipeline__agent-name">투자 전략가</span>
+              <span class="pipeline__agent-desc">매수/관망/매도 판정</span>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>

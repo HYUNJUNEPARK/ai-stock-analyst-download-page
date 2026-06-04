@@ -430,9 +430,9 @@ img {
   line-height: 1.6;
 }
 
-/* Pipeline */
+/* Pipeline — 3-Stage Horizontal Layout */
 .agents__pipeline {
-  max-width: 720px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -440,89 +440,175 @@ img {
   font-size: 1.25rem;
   font-weight: 600;
   text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.agents__pipeline-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-align: center;
   margin-bottom: 2rem;
 }
 
 .pipeline {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   gap: 0;
 }
 
-.pipeline__wave {
-  width: 100%;
+/* Stage Card */
+.pipeline__stage {
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
-.pipeline__label {
+.pipeline__stage--blue {
+  border: 2px solid var(--primary);
+  flex: 3;
+}
+
+.pipeline__stage--green {
+  border: 1.5px solid #10b981;
+  flex: 1;
+}
+
+.pipeline__stage--purple {
+  border: 1.5px solid #8b5cf6;
+  flex: 1;
+}
+
+/* Stage Header */
+.pipeline__stage-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pipeline__stage-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #fff;
+  padding: 0.15rem 0.5rem;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.pipeline__stage-badge--blue { background: var(--primary); }
+.pipeline__stage-badge--green { background: #10b981; }
+.pipeline__stage-badge--purple { background: #8b5cf6; }
+
+.pipeline__stage-title {
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--text-secondary);
-  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+.pipeline__stage-desc {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  line-height: 1.4;
+}
+
+/* Stage 1 Body: 2x2 Grid + Valuation */
+.pipeline__stage-body {
+  display: flex;
+  gap: 0.75rem;
+  align-items: stretch;
+}
+
+.pipeline__agent-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.pipeline__agent-card {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: #f5f9fd;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.pipeline__agent-img {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.pipeline__agent-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.pipeline__agent-name {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.pipeline__agent-desc {
+  font-size: 0.65rem;
+  color: var(--text-tertiary);
+}
+
+/* Valuation Special Card */
+.pipeline__valuation-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  padding: 0.625rem;
+  background: #f5f9fd;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  min-width: 88px;
+}
+
+.pipeline__valuation-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Stage 2 & 3 Center Content */
+.pipeline__stage-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex: 1;
   text-align: center;
 }
 
-.pipeline__badge {
-  display: inline-block;
-  font-size: 0.7rem;
-  font-weight: 500;
-  background: var(--primary-light);
-  color: var(--primary);
-  padding: 0.15rem 0.5rem;
-  border-radius: 999px;
-  margin-left: 0.25rem;
-}
-
-.pipeline__items {
-  display: flex;
-  justify-content: center;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-
-.pipeline__items--sequential {
-  align-items: center;
-}
-
-.pipeline__item {
-  background: var(--bg-white);
-  border: 1px solid var(--border);
+.pipeline__stage-icon {
+  width: 52px;
+  height: 52px;
   border-radius: var(--radius-md);
-  padding: 0.625rem 1rem;
-  font-size: 0.85rem;
-  font-weight: 500;
-  white-space: nowrap;
-  transition: all var(--transition);
+  object-fit: cover;
 }
 
-.pipeline__item--wave1 {
-  border-left: 3px solid var(--primary);
-}
-
-.pipeline__item--wave1b {
-  border-left: 3px solid #5856d6;
-}
-
-.pipeline__item--wave2 {
-  border-left: 3px solid #ff9500;
-}
-
-.pipeline__item--wave2-final {
-  border-left: 3px solid var(--success);
-  background: rgba(52, 199, 89, 0.06);
-  font-weight: 600;
-}
-
-.pipeline__connector {
-  display: flex;
-  justify-content: center;
-  padding: 0.25rem 0;
-}
-
+/* Arrow Between Stages */
 .pipeline__arrow {
   display: flex;
   align-items: center;
-  padding: 0 0.25rem;
+  justify-content: center;
+  padding: 0 0.5rem;
+  flex-shrink: 0;
+  color: var(--text-tertiary);
 }
 
 /* ===========================
@@ -658,6 +744,23 @@ img {
   .agents__card {
     width: calc(33.333% - 1.1rem);
   }
+
+  .pipeline {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .pipeline__stage--blue {
+    flex: none;
+  }
+
+  .pipeline__arrow {
+    padding: 0.5rem 0;
+  }
+
+  .pipeline__arrow svg {
+    transform: rotate(90deg);
+  }
 }
 
 @media (max-width: 768px) {
@@ -735,17 +838,36 @@ img {
     min-width: 0;
   }
 
-  /* Pipeline mobile */
-  .pipeline__items {
+  /* Pipeline mobile — vertical stack */
+  .pipeline {
     flex-direction: column;
-    align-items: center;
+    gap: 0;
   }
 
-  .pipeline__items--sequential {
+  .pipeline__stage--blue {
+    flex: none;
+  }
+
+  .pipeline__stage-body {
     flex-direction: column;
+  }
+
+  .pipeline__valuation-card {
+    flex-direction: row;
+    min-width: 0;
+    gap: 0.5rem;
+  }
+
+  .pipeline__valuation-img {
+    width: 32px;
+    height: 32px;
   }
 
   .pipeline__arrow {
+    padding: 0.5rem 0;
+  }
+
+  .pipeline__arrow svg {
     transform: rotate(90deg);
   }
 }
