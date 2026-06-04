@@ -21,32 +21,32 @@
   // ===========================
   const FEATURES_DATA = [
     {
-      icon: '🤖',
+      image: 'assets/images/01-multi-agent.png',
       title: '멀티 에이전트 분석',
       desc: '7개 전문 AI 에이전트가 재무, 업종, 뉴스, 기술적 분석을 병렬로 수행합니다.'
     },
     {
-      icon: '🧠',
+      image: 'assets/images/02-ai-model-select.png',
       title: 'AI 모델 선택',
       desc: 'GPT 또는 Claude 모델 중 원하는 AI를 선택하여 분석할 수 있습니다.'
     },
     {
-      icon: '📋',
+      image: 'assets/images/03-report-generation.png',
       title: '투자 리포트 생성',
       desc: '종합 투자 리포트를 자동 생성하고 PDF로 내보낼 수 있습니다.'
     },
     {
-      icon: '⚡',
+      image: 'assets/images/04-parallel-pipeline.png',
       title: '병렬 파이프라인',
       desc: '최대 4개 에이전트가 동시에 분석하여 빠른 결과를 제공합니다.'
     },
     {
-      icon: '🏷️',
+      image: 'assets/images/05-invest-type.png',
       title: '투자 유형 분류',
       desc: '성장형, 가치형, 턴어라운드형 등 6가지 유형으로 종목을 자동 분류합니다.'
     },
     {
-      icon: '🎯',
+      image: 'assets/images/06-buy-sell-verdict.png',
       title: '매수/매도 판정',
       desc: '재무 건전성, 업종 방향성, 시장 심리를 종합한 최종 투자 판단을 제시합니다.'
     }
@@ -172,7 +172,9 @@
 
     grid.innerHTML = FEATURES_DATA.map(item => `
       <article class="features__card fade-in">
-        <div class="features__card-icon">${item.icon}</div>
+        <div class="features__card-image-wrap">
+          <img src="${item.image}" alt="${item.title}" class="features__card-image" loading="lazy">
+        </div>
         <h3 class="features__card-title">${item.title}</h3>
         <p class="features__card-desc">${item.desc}</p>
       </article>
