@@ -30,7 +30,8 @@
     },
     {
       image: 'assets/images/03-preview-process.png',
-      caption: 'AI 에이전트 분석 진행'
+      caption: 'AI 에이전트 분석 진행',
+      objectPosition: 'center 5%'
     },
     {
       image: 'assets/images/04-preview-report.png',
@@ -228,7 +229,7 @@
     track.innerHTML = SCREENSHOTS_DATA.map(item => `
       <div class="screenshots__slide">
         <div class="screenshots__image-wrap">
-          <img src="${item.image}" alt="${item.caption}" class="screenshots__image" loading="lazy">
+          <img src="${item.image}" alt="${item.caption}" class="screenshots__image" loading="lazy"${item.objectPosition ? ` style="object-position: ${item.objectPosition}"` : ''}>
         </div>
         <p class="screenshots__caption">${item.caption}</p>
       </div>
