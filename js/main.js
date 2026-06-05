@@ -21,16 +21,16 @@
   // ===========================
   const SCREENSHOTS_DATA = [
     {
-      image: 'assets/images/screenshot-model-select.png',
-      caption: 'AI 모델 선택'
+      image: 'assets/images/01-preview-login.png',
+      caption: '로그인 및 AI 모델 선택'
     },
     {
-      image: 'assets/images/screenshot-analysis.png',
-      caption: '멀티 에이전트 분석 진행'
+      image: 'assets/images/02-preview-prompt.png',
+      caption: '종목 입력 및 분석 요청'
     },
     {
-      image: 'assets/images/screenshot-report.png',
-      caption: '투자 리포트 결과'
+      image: 'assets/images/03-preview-process.png',
+      caption: 'AI 에이전트 분석 진행'
     }
   ];
 
@@ -40,13 +40,13 @@
   const FEATURES_DATA = [
     {
       image: 'assets/images/01-multi-agent.png',
-      title: '멀티 에이전트 분석',
+      title: 'AI 에이전트 분석',
       desc: '7개 전문 AI 에이전트가 재무, 업종, 뉴스, 기술적 분석을 병렬로 수행합니다.'
     },
     {
       image: 'assets/images/02-ai-model-select.png',
       title: 'AI 모델 선택',
-      desc: 'GPT 또는 Claude 모델 중 원하는 AI를 선택하여 분석할 수 있습니다.'
+      desc: 'GPT 또는 Claude 모델 중 원하는 AI를 선택하여 분석할 수 있습니다.<br>(* Claude는 준비 중)'
     },
     {
       image: 'assets/images/03-report-generation.png',
