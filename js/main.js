@@ -12,8 +12,8 @@
   // 상수 — 다운로드 URL (추후 CDN/릴리스 URL로 교체)
   // ===========================
   const DOWNLOAD_URLS = {
-    windows: '#',
-    mac: '#'
+    windows: 'https://github.com/HYUNJUNEPARK/ai-stock-analyst-desktop/releases/latest/download/ai-stock-analytics-setup-windows.exe',
+    mac: 'https://github.com/HYUNJUNEPARK/ai-stock-analyst-desktop/releases/latest/download/ai-stock-analytics-setup-mac.dmg'
   };
 
   // ===========================
