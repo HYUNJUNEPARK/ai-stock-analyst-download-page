@@ -124,6 +124,10 @@
       a: '앱 자체는 무료로 다운로드 가능합니다. 다만 AI 분석 수행을 위해 사용자 계정의 GPT 또는 Claude 권한이 필요하며, 해당 AI 모델 사용료는 각 서비스 제공자의 요금 정책에 따릅니다.'
     },
     {
+      q: '앱 설치 전에 준비해야 할 것이 있나요?',
+      a: '네, AI 분석에 필요한 CLI 도구(Claude Code, Codex)가 npm을 통해 설치되므로 Node.js가 사전에 설치되어 있어야 합니다. <a href="https://nodejs.org/ko/download" target="_blank" rel="noopener noreferrer">Node.js 공식 사이트</a>에서 LTS 버전을 다운로드하여 설치한 뒤, 터미널에서 <code><b>node -v</b></code>와 <code><b>npm -v</b></code> 명령어로 정상 설치를 확인해 주세요.'
+    },
+    {
       q: 'GPT와 Claude 중 어떤 모델을 선택해야 하나요?',
       a: '두 모델 모두 우수한 분석 결과를 제공합니다. GPT는 Codex CLI를, Claude는 Claude Code를 활용합니다. 이미 사용 중인 AI 모델이 있다면 해당 모델을 선택하시면 됩니다.'
     },
@@ -133,15 +137,15 @@
     },
     {
       q: '해외 종목도 분석할 수 있나요?',
-      a: '현재 버전은 한국 주식 시장(KOSPI, KOSDAQ) 종목 분석에 최적화되어 있습니다. 해외 종목 지원은 향후 업데이트에서 제공할 예정입니다.'
+      a: '네, 한국 주식(KOSPI, KOSDAQ)은 물론 미국 주식(NYSE, NASDAQ)도 분석할 수 있습니다. 종목명 또는 티커(예: AAPL, TSLA)를 입력하면 자동으로 인식하여 분석을 진행합니다.'
     },
     {
       q: '분석 결과를 어떻게 활용해야 하나요?',
       a: 'AI 분석 결과는 투자 참고 자료로 활용하시기 바랍니다. 최종 투자 판단은 본인의 책임 하에 이루어져야 하며, 어떠한 투자 손실에 대해서도 앱은 책임지지 않습니다.'
     },
     {
-      q: 'CLI 설치가 뭔가요?',
-      a: 'AI 분석을 수행하기 위해 Claude Code 또는 Codex CLI 도구가 필요합니다. 앱 내에서 자동으로 설치를 안내하며, npm을 통해 간편하게 설치됩니다.'
+      q: '모바일에서도 사용할 수 있나요?',
+      a: '현재는 Windows와 macOS 데스크탑 환경에서만 사용할 수 있습니다. 모바일(iOS, Android) 버전은 지원하지 않으며, 향후 지원 여부는 검토 중입니다.'
     }
   ];
 
@@ -153,8 +157,7 @@
       os: 'windows',
       icon: 'assets/images/win.png',
       title: 'Windows',
-      file: 'ai-stock-analytics-setup.exe',
-      format: 'NSIS 인스톨러 (.exe)',
+      file: 'ai-stock-analytics-setup-windows.exe',
       url: DOWNLOAD_URLS.windows,
       requirements: ['Windows 10 이상', '4GB RAM 이상', '500MB 디스크 여유 공간', '인터넷 연결 필요']
     },
@@ -162,8 +165,7 @@
       os: 'mac',
       icon: 'assets/images/mac_black.png',
       title: 'macOS',
-      file: 'ai-stock-analytics.dmg',
-      format: 'DMG 디스크 이미지 (.dmg)',
+      file: 'ai-stock-analytics-setup-mac.dmg',
       url: DOWNLOAD_URLS.mac,
       requirements: ['macOS 12 (Monterey) 이상', '4GB RAM 이상', '500MB 디스크 여유 공간', '인터넷 연결 필요']
     }
@@ -337,7 +339,7 @@
           ${badgeHTML}
           <img src="${item.icon}" alt="${item.title}" class="download__card-icon">
           <h3 class="download__card-title">${item.title}</h3>
-          <p class="download__card-file">${item.format}</p>
+          <p class="download__card-file">${item.file}</p>
           ${btnHTML}
           <div class="download__card-requirements">
             <span class="download__card-requirements-title">시스템 요구사항</span>
