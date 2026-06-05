@@ -306,6 +306,14 @@ img {
   opacity: 0.5;
 }
 
+.hero__mobile-notice {
+  width: 100%;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
 .hero__btn-icon {
   width: 20px;
   height: 20px;
@@ -386,6 +394,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid var(--border);
 }
 
 .screenshots__image {

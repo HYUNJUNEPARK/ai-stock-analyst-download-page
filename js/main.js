@@ -31,6 +31,10 @@
     {
       image: 'assets/images/03-preview-process.png',
       caption: 'AI 에이전트 분석 진행'
+    },
+    {
+      image: 'assets/images/04-preview-report.png',
+      caption: '투자 리포트 결과'
     }
   ];
 
@@ -117,15 +121,15 @@
   const FAQ_DATA = [
     {
       q: 'AI 투자 솔루션은 무료인가요?',
-      a: '앱 자체는 무료로 다운로드 가능합니다. 다만 AI 분석 수행을 위해 GPT 또는 Claude API 접근 권한이 필요하며, 해당 API 사용료는 각 서비스 제공자의 요금 정책에 따릅니다.'
+      a: '앱 자체는 무료로 다운로드 가능합니다. 다만 AI 분석 수행을 위해 사용자 계정의 GPT 또는 Claude 권한이 필요하며, 해당 AI 모델 사용료는 각 서비스 제공자의 요금 정책에 따릅니다.'
     },
     {
       q: 'GPT와 Claude 중 어떤 모델을 선택해야 하나요?',
-      a: '두 모델 모두 우수한 분석 결과를 제공합니다. GPT는 Codex CLI를, Claude는 Claude Code를 활용합니다. 이미 사용 중인 API가 있다면 해당 모델을 선택하시면 됩니다.'
+      a: '두 모델 모두 우수한 분석 결과를 제공합니다. GPT는 Codex CLI를, Claude는 Claude Code를 활용합니다. 이미 사용 중인 AI 모델이 있다면 해당 모델을 선택하시면 됩니다.'
     },
     {
       q: '분석에 얼마나 걸리나요?',
-      a: '7개 에이전트가 병렬로 동작하므로 일반적으로 3~5분 내에 전체 분석이 완료됩니다. 네트워크 상태와 AI 모델 응답 속도에 따라 다소 차이가 있을 수 있습니다.'
+      a: '최대 4개 에이전트가 병렬로 동작하므로 일반적으로 4~8분 내에 전체 분석이 완료됩니다. 네트워크 상태와 AI 모델 응답 속도에 따라 다소 차이가 있을 수 있습니다.'
     },
     {
       q: '해외 종목도 분석할 수 있나요?',
@@ -197,6 +201,7 @@
       container.innerHTML = `
         <span class="hero__btn hero__btn--disabled">${winIcon} Windows용 다운로드</span>
         <span class="hero__btn hero__btn--disabled">${macIcon} macOS용 다운로드</span>
+        <p class="hero__mobile-notice">데스크탑(PC/Mac)에서 다운로드할 수 있습니다.</p>
       `;
       return;
     }
