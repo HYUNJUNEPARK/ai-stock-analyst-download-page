@@ -134,7 +134,7 @@
     },
     {
       q: 'macOS에서 DMG 파일 실행 시 "손상되었기 때문에 열 수 없습니다" 오류가 발생합니다.',
-      a: '현재 앱에 Apple 코드 서명이 적용되지 않아 macOS Gatekeeper가 실행을 차단하는 현상입니다. 터미널(Terminal)을 열고 아래 명령어를 입력한 뒤 DMG 파일을 다시 열면 정상 설치할 수 있습니다.<br><br><code><b>xattr -cr ~/Downloads/ai-stock-analytics-setup-mac.dmg</b></code><br><br>위 명령어는 macOS가 인터넷 다운로드 파일에 자동 부여하는 격리(quarantine) 속성을 제거합니다. 정식 출시 이후 Apple 코드 서명 및 공증을 적용하여 별도 조치 없이 바로 실행할 수 있도록 개선할 예정입니다.'
+      a: '현재 앱에 Apple 코드 서명이 적용되지 않아 macOS Gatekeeper가 실행을 차단하는 현상입니다. 터미널(Terminal)을 열고 아래 명령어를 입력한 뒤 DMG 파일을 다시 열면 정상 설치할 수 있습니다.<br><br><code><b style="color:#000">xattr -cr ~/Applications/ai-stock-analytics.app</b></code><br><br>위 명령어는 macOS가 인터넷 다운로드 파일에 자동 부여하는 격리(quarantine) 속성을 제거합니다. 정식 출시 이후 Apple 코드 서명 및 공증을 적용하여 별도 조치 없이 바로 실행할 수 있도록 개선할 예정입니다.'
     },
     {
       q: 'GPT와 Claude 중 어떤 모델을 선택해야 하나요?',
