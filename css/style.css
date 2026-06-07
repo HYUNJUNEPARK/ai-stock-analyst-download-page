@@ -17,6 +17,7 @@
   --radius-xl: 22px;
   --transition: 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
   --max-width: 1080px;
+  --primary-light: rgba(0, 122, 255, 0.08);
   --nav-height: 52px;
 }
 
