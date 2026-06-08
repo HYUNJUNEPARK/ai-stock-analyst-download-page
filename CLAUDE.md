@@ -31,9 +31,14 @@ web/
 ├── css/
 │   └── style.css        # 전체 스타일
 ├── js/
-│   └── main.js          # 전체 JavaScript (OS 감지, FAQ 토글, 스크롤 등)
+│   ├── data.js          # 콘텐츠 데이터 (다운로드 URL, 섹션 데이터, FAQ 등)
+│   └── main.js          # UI 로직 (OS 감지, 렌더링, FAQ 토글, 스크롤 등)
 ├── assets/
-│   ├── images/          # 스크린샷, 아이콘, 로고
+│   ├── images/
+│   │   ├── common/      # 공통 아이콘 (OS 아이콘, favicon, OG 이미지)
+│   │   ├── screenshots/ # 앱 미리보기 스크린샷
+│   │   ├── features/    # 핵심 기능 카드 이미지
+│   │   └── agents/      # 에이전트 카드 이미지
 │   └── downloads/       # 설치 파일 또는 외부 다운로드 URL 사용
 └── CLAUDE.md            # 이 파일
 ```
@@ -44,8 +49,9 @@ web/
 |------|------|----------------|
 | `index.html` | 전체 페이지 구조, 섹션 배치 | `app/page.tsx` + 레이아웃 |
 | `css/style.css` | 모든 스타일 | Tailwind 유틸리티 또는 CSS Modules |
-| `js/main.js` | OS 감지, FAQ 아코디언, 스크롤 애니메이션 | hooks + 컴포넌트 로직 |
-| `assets/images/` | 정적 이미지 | `public/` 또는 `next/image` |
+| `js/data.js` | 콘텐츠 데이터 정의 | 그대로 import하여 사용 |
+| `js/main.js` | OS 감지, 렌더링, FAQ 아코디언, 스크롤 애니메이션 | hooks + 컴포넌트 로직 |
+| `assets/images/` | 정적 이미지 (하위 폴더별 분류) | `public/` 또는 `next/image` |
 
 ---
 

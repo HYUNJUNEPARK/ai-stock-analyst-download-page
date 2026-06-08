@@ -159,7 +159,7 @@
 
     const mobile = os === 'mobile';
 
-    container.innerHTML = DOWNLOAD_DATA.map((item, i) => {
+    container.innerHTML = DOWNLOAD_DATA.map(item => {
       const isDetected = !mobile && item.os === os;
       const badgeHTML = isDetected ? '<span class="download__card-badge">사용 중인 OS</span>' : '';
 
