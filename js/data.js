@@ -112,7 +112,11 @@ const FAQ_DATA = [
   },
   {
     q: '앱 설치 전에 준비해야 할 것이 있나요?',
-    a: '네, AI 분석에 필요한 CLI 도구(Claude Code, Codex)가 npm을 통해 설치되므로 Node.js가 사전에 설치되어 있어야 합니다. <a href="https://nodejs.org/ko/download" target="_blank" rel="noopener noreferrer">Node.js 공식 사이트</a>에서 LTS 버전을 다운로드하여 설치한 뒤, 터미널에서 <code><b>node -v</b></code>와 <code><b>npm -v</b></code> 명령어로 정상 설치를 확인해 주세요.'
+    a: '네, AI 분석에 필요한 CLI 도구(Claude Code, Codex)가 npm을 통해 설치되므로 Node.js가 사전에 설치되어 있ㄴ어야 합니다. <a href="https://nodejs.org/ko/download" target="_blank" rel="noopener noreferrer">Node.js 공식 사이트</a>에서 LTS 버전을 다운로드하여 설치한 뒤, 터미널에서 <code><b>node -v</b></code>와 <code><b>npm -v</b></code> 명령어로 정상 설치를 확인해 주세요.'
+  },
+  {
+    q: 'Windows에서 설치 파일 다운로드 시 "일반적으로 다운로드되지 않습니다" 경고가 표시됩니다.',
+    a: 'Microsoft Edge 브라우저에서 발생하는 보안 경고로, 설치 파일 자체의 문제는 아닙니다.<br><br><a href="https://www.google.com/chrome" target="_blank" rel="noopener noreferrer">Chrome</a> 등 다른 브라우저를 사용하여 다운로드하면 해당 경고 없이 정상적으로 설치 파일을 받을 수 있습니다.'
   },
   {
     q: 'macOS에서 DMG 파일 실행 시 "손상되었기 때문에 열 수 없습니다" 오류가 발생합니다.',
