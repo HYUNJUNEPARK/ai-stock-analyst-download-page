@@ -829,7 +829,7 @@ img {
 }
 
 .faq__item.open .faq__answer {
-  max-height: 500px;
+  max-height: 1000px;
 }
 
 /* ===========================
