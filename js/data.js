@@ -120,7 +120,7 @@ const FAQ_DATA = [
   },
   {
     q: 'macOS에서 DMG 파일 실행 시 "손상되었기 때문에 열 수 없습니다" 오류가 발생합니다.',
-    a: '현재 앱에 Apple 코드 서명이 적용되지 않아 macOS 가 실행을 차단하는 현상입니다. 터미널을 열고 아래 명령어를 입력한 뒤 DMG 파일을 다시 열면 정상 설치할 수 있습니다.<br><br><code><b style="color:#000">xattr -cr ~/Applications/ai-stock-analytics.app</b></code><br><br>위 명령어는 macOS가 인터넷 다운로드 파일에 자동 부여하는 속성을 제거합니다. 정식 출시 이후 Apple 코드 서명 및 공증을 적용하여 별도 조치 없이 바로 실행할 수 있도록 개선할 예정입니다.'
+    a: '앱 자체의 문제가 아니며, macOS가 인터넷에서 다운로드한 앱을 자동으로 차단하여 발생하는 현상입니다. 아래 순서대로 진행하면 정상적으로 실행할 수 있습니다.<br><br><b>1단계)</b> DMG 파일을 열어 앱을 응용 프로그램(Applications) 폴더로 드래그하여 설치합니다.<br><br><b>2단계)</b> Spotlight 검색(⌘ + Space)에서 "터미널"을 입력하고 터미널 앱을 실행합니다.<br><br><b>3단계)</b> 아래 명령어를 복사하여 터미널에 붙여넣고 Enter를 누릅니다.<br><br><code><b style="color:#000">xattr -cr /Applications/ai-stock-analytics.app</b></code><br><br><b>4단계)</b> 응용 프로그램 폴더에서 AI 투자 솔루션을 다시 실행합니다.<br><br>정식 출시 이후에는 이 과정 없이 바로 실행할 수 있도록 개선할 예정입니다.'
   },
   {
     q: 'GPT와 Claude 중 어떤 모델을 선택해야 하나요?',
